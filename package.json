@@ -1,0 +1,33 @@
+{
+  "name": "itjobs",
+  "version": "1.0.0",
+  "description": "Web application exclusively for IT Jobs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mean2.0",
+    "mongodb",
+    "angular",
+    "2",
+    "nodejs",
+    "expressjs"
+  ],
+  "author": "PRADISH VASUDEVAN",
+  "license": "ISC",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.17.1",
+    "connect-mongo": "^1.3.2",
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.1",
+    "express": "^4.15.2",
+    "express-session": "^1.15.1",
+    "express-validator": "^3.1.2",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "^4.9.0",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
+  }
+}

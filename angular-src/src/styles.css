@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+/*@import '/src/assets/styles/themes.css';*/
+
+@import '~@angular/material/core/theming/prebuilt/indigo-pink.css';
+.spacer { -webkit-box-flex: 1; -ms-flex: 1; flex: 1 1 auto;}
+.pt { padding-top: 10px;}
+#formcontainer {
+     display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+
+input.ng-invalid.ng-touched {
+  border: solid 1px red;
+}
+
+.input-full-width {
+  width: 100%;
+}

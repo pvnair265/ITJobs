@@ -1,0 +1,56 @@
+<!--Material 2 -->
+
+<div layout="row" id="formcontainer">
+  <div flex="50">
+    <md-card class="example-card">
+      <md-card-title>Register</md-card-title>
+          <md-card-content>
+              <form (submit)="onRegister()">
+                <md-input-container class="input-full-width">
+                  <input mdInput placeholder="First name" type="text" [(ngModel)]="firstname" name="firstname" id="firstname" >
+                </md-input-container>
+
+                <md-input-container class="input-full-width">
+                  <input mdInput placeholder="Last name" type="text" [(ngModel)]="lastname" name="lastname" id="lastname">
+                </md-input-container>
+
+                <md-input-container class="input-full-width">
+                     <input mdInput placeholder="Email" type="text" [(ngModel)]="email" name="email" id="email">
+                </md-input-container>
+
+                <md-input-container class="input-full-width">
+                     <input mdInput placeholder="Password" type="password" [(ngModel)]="password" name="password" id="password">
+                </md-input-container>
+
+                <button type="submit" md-raised-button color="primary">Register</button>
+            </form>
+          </md-card-content>
+      </md-card>
+    </div>
+</div>
+
+<!--End -->
+
+
+
+
+
+<!--<form (submit)="onRegister()">
+  <div class="form-group">
+    <label for="firstname">First Name</label>
+    <input type="text" class="form-control" [(ngModel)]="firstname" name="firstname" id="firstname" placeholder="First name">
+  </div>
+  <div class="form-group">
+    <label for="lastname">Last Name</label>
+    <input type="text" class="form-control" [(ngModel)]="lastname" name="lastname" id="lastname" placeholder="Last name">
+  </div>
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="text" class="form-control" [(ngModel)]="email" name="email" id="email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" [(ngModel)]="password" name="password" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>-->

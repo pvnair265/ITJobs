@@ -1,0 +1,365 @@
+<md-card class="example-card" *ngIf="user" style="margin: 20px 0 ;">
+      <md-card-title>{{user.firstname | uppercase}} {{user.lastname | uppercase}} </md-card-title>
+          <md-card-content>
+              <p>{{user.email}}</p>
+          </md-card-content>
+      </md-card>
+
+<form [formGroup]="createprofileForm" (ngSubmit)="createProfile()"  class="form-horizontal">
+  <accordion>
+    <accordion-group #group>
+      <div accordion-heading>
+        General Information
+        <i class="pull-right float-xs-right glyphicon" [ngClass]="{'glyphicon-chevron-down': group?.isOpen, 'glyphicon-chevron-right': !group?.isOpen}"></i>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">General Information</h3>
+            </div>
+            <div class="panel-body">
+              <div formGroupName="generalinfo">
+              <div class="form-group">
+                <label for="phone" class="col-sm-2 control-label">Phone</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="phone" formControlName="phone" />
+                    <span class="help-block"
+                         *ngIf="!createprofileForm.get('generalinfo.phone').valid && createprofileForm.get('generalinfo.phone').touched"> Please enter valid phone number
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="linkedin" class="col-sm-2 control-label">Linkedin</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="linkedin" formControlName="linkedin" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="twitter" class="col-sm-2 control-label">Twitter</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="twitter" formControlName="twitter" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="facebook" class="col-sm-2 control-label">Facebook</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="facebook" formControlName="facebook" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="website" class="col-sm-2 control-label">Personal Website</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="website" formControlName="website" />
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Address</h3>
+            </div>
+            <div class="panel-body">
+              <div formGroupName="address">
+              <div class="form-group">
+                <label for="city" class="col-sm-2 control-label">City</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" formControlName="city" id="city">
+                    <span class="help-block"
+                         *ngIf="!createprofileForm.get('address.city').valid && createprofileForm.get('address.city').touched"> Please enter city
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="state" class="col-sm-2 control-label">State</label>
+                <div class="col-sm-10">
+                  <select class="form-control" formControlName="state" id="state">
+                      <option value="">Choose State</option>
+                      <option value="AL">Alabama</option>
+                      <option value="AK">Alaska</option>
+                      <option value="AZ">Arizona</option>
+                      <option value="AR">Arkansas</option>
+                      <option value="CA">California</option>
+                      <option value="CO">Colorado</option>
+                      <option value="CT">Connecticut</option>
+                      <option value="DE">Delaware</option>
+                      <option value="DC">District Of Columbia</option>
+                      <option value="FL">Florida</option>
+                      <option value="GA">Georgia</option>
+                      <option value="HI">Hawaii</option>
+                      <option value="ID">Idaho</option>
+                      <option value="IL">Illinois</option>
+                      <option value="IN">Indiana</option>
+                      <option value="IA">Iowa</option>
+                      <option value="KS">Kansas</option>
+                      <option value="KY">Kentucky</option>
+                      <option value="LA">Louisiana</option>
+                      <option value="ME">Maine</option>
+                      <option value="MD">Maryland</option>
+                      <option value="MA">Massachusetts</option>
+                      <option value="MI">Michigan</option>
+                      <option value="MN">Minnesota</option>
+                      <option value="MS">Mississippi</option>
+                      <option value="MO">Missouri</option>
+                      <option value="MT">Montana</option>
+                      <option value="NE">Nebraska</option>
+                      <option value="NV">Nevada</option>
+                      <option value="NH">New Hampshire</option>
+                      <option value="NJ">New Jersey</option>
+                      <option value="NM">New Mexico</option>
+                      <option value="NY">New York</option>
+                      <option value="NC">North Carolina</option>
+                      <option value="ND">North Dakota</option>
+                      <option value="OH">Ohio</option>
+                      <option value="OK">Oklahoma</option>
+                      <option value="OR">Oregon</option>
+                      <option value="PA">Pennsylvania</option>
+                      <option value="RI">Rhode Island</option>
+                      <option value="SC">South Carolina</option>
+                      <option value="SD">South Dakota</option>
+                      <option value="TN">Tennessee</option>
+                      <option value="TX">Texas</option>
+                      <option value="UT">Utah</option>
+                      <option value="VT">Vermont</option>
+                      <option value="VA">Virginia</option>
+                      <option value="WA">Washington</option>
+                      <option value="WV">West Virginia</option>
+                      <option value="WI">Wisconsin</option>
+                      <option value="WY">Wyoming</option>
+                  </select>
+                 
+                    <span class="help-block"
+                         *ngIf="!createprofileForm.get('address.state').valid && createprofileForm.get('address.state').touched"> Please enter state
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country" class="col-sm-2 control-label">Country</label>
+                <div class="col-sm-10">
+                   <select class="form-control" formControlName="country" id="country">
+                      <option value="">Choose Country</option>
+                      <option value="USA">USA</option>
+                   </select>   
+                 
+                    <span class="help-block"
+                         *ngIf="!createprofileForm.get('address.country').valid && createprofileForm.get('address.country').touched"> Please select country
+                  </span>
+                </div>
+              </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="Work">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Work</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label for="title" class="col-sm-2 control-label">Title</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="title" id="title">
+                <span class="help-block"
+                         *ngIf="!createprofileForm.get('title').valid && createprofileForm.get('title').touched"> Please enter title
+                  </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="linkedin" class="col-sm-2 control-label">Years of Experience</label>
+            <div class="col-sm-10">
+              <select formControlName="yearsofexp"  id="yearsofexp">
+                <option value=''>Years of Experience</option>
+                <option value='1'>1+</option>
+                <option value='2'>2+</option>
+                <option value='3'>3+</option>
+                <option value='4'>4+</option>
+                <option value='5'>5+</option>
+                <option value='6'>6+</option>
+                <option value='7'>7+</option>
+                <option value='8'>8+</option>
+                <option value='9'>9+</option>
+                <option value='10'>10+</option>
+              </select>  
+                <span class="help-block"
+                         *ngIf="!createprofileForm.get('yearsofexp').valid && createprofileForm.get('yearsofexp').touched"> Please select years of exp
+                  </span>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="emptypr" class="col-sm-2 control-label">Type</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="emptype" formControlName="emptype">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="relocate" class="col-sm-2 control-label">Relocate</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="relocate" formControlName="relocate">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="salary" class="col-sm-2 control-label">Salary</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="salary" formControlName="salary">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="hourly" class="col-sm-2 control-label">Hourly</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" formControlName="hourly" id="hourly">
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </accordion-group>
+
+    <accordion-group heading="Work Experience">
+     
+        <div formArrayName="workexperience">
+         <div class="panel panel-primary" 
+         *ngFor="let weControl of createprofileForm.get('workexperience').controls; let i = index"
+         [formGroupName]="i">
+        <div class="panel-heading">
+          <h3 class="panel-title">Work Experience {{i+1}}</h3>
+        </div>
+        <div class="panel-body">
+        <div class="form-group">
+          <label for="website" class="col-sm-2 control-label">Job Title</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="wetitle" formControlName="wetitle">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="website" class="col-sm-2 control-label">Company</label>
+          <div class="col-sm-8">
+            <input type="text" class="form-control" id="wecompany" formControlName="wecompany">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="website" class="col-sm-2 control-label">Period</label>
+          <div class="col-sm-8">
+            <select  id="wefrom" formControlName="wefrom">
+                  <option value="">To</option>
+                  <option value="2000">2000</option>
+                   <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+              </select>
+
+            <select formControlName="weto" id="weto">
+                  <option value="">From</option>
+                  <option value="2000">2000</option>
+                   <option value="2001">2001</option>
+                    <option value="2002">2002</option>
+                    <option value="2003">2003</option>
+                    <option value="2004">2004</option>
+                    <option value="2005">2005</option>
+                    <option value="2006">2006</option>
+                    <option value="2007">2007</option>
+                    <option value="2008">2008</option>
+                    <option value="2009">2009</option>
+                    <option value="2010">2010</option>
+                    <option value="2011">2011</option>
+                    <option value="2012">2012</option>
+                    <option value="2013">2013</option>
+                    <option value="2014">2014</option>
+                    <option value="2015">2015</option>
+                    <option value="2016">2016</option>
+                    <option value="2017">2017</option>
+              </select>
+          </div>
+        </div>
+
+         <div class="form-group">
+           <label for="" class="col-sm-2 control-label"></label>
+          <div class="col-sm-10">
+            <span><button class="btn btn-danger pull-right" type="button" (click)="deleteExp(i)">Delete</button></span>
+          </div>
+        </div>
+
+        </div>
+         </div>
+        </div>
+
+        <div class="form-group pt">
+          <div class="col-sm-10">
+            <span><button class="btn btn-success" type="button" (click)="addMore()">Add Experience</button></span>
+          </div>
+        </div>
+
+
+    </accordion-group>
+
+    <accordion-group heading="Skills">
+      <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">Top Skills</h3>
+        </div>
+        <div class="panel-body" formArrayName="topskills">
+         <div *ngFor="let skillCtrl of createprofileForm.get('topskills').controls; let i = index" [formGroupName]="i"> 
+          <div class="form-group">
+            <div class="col-sm-5">
+              <input type="text" class="form-control" id="skills" formControlName="skills" placeholder="Top Skill">
+            </div>
+            <div class="col-sm-5">
+              <select style="width: 100%;" formControlName="years" style="height:38px; width:100%;">
+                  <option value="">Years of Experience</option>
+                  <option value='1'>1+</option>
+                <option value='2'>2+</option>
+                <option value='3'>3+</option>
+                <option value='4'>4+</option>
+                <option value='5'>5+</option>
+                <option value='6'>6+</option>
+                <option value='7'>7+</option>
+                <option value='8'>8+</option>
+                <option value='9'>9+</option>
+                <option value='10'>10+</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+             <button type="button" class="btn btn-danger" (click)="deleteSkills(i)">X</button>
+            </div>
+          </div>
+         </div>
+
+         <div class="form-group pt">
+          <div class="col-sm-10">
+            <span><button class="btn btn-success" type="button" (click)="addSkills()">Add Skills</button></span>
+          </div>
+        </div>
+        </div>
+      </div>
+    </accordion-group>
+  </accordion>
+
+  <br /><br />
+  <button class="btn btn-success" [disabled]="!createprofileForm.valid">Create Profile</button>
+  <button type="button" class="btn btn-primary pull-right" (click)="back();">Back to Dashboard</button>
+</form>

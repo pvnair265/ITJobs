@@ -1,0 +1,39 @@
+<!--Material 2 -->
+
+<div layout="row" id="formcontainer">
+  <div flex="50">
+    <md-card class="example-card">
+      <md-card-title>Login</md-card-title>
+          <md-card-content>
+              <form (submit)="onLogin()">
+                <md-input-container class="input-full-width">
+                  <input mdInput placeholder="Email" type="text" [(ngModel)]="email" name="email" id="email" >
+                </md-input-container>
+
+                <md-input-container class="input-full-width">
+                  <input mdInput placeholder="Password" type="password" [(ngModel)]="password" name="password" id="password">
+                </md-input-container>
+
+                <button type="submit" md-raised-button color="primary">Login</button>
+            </form>
+          </md-card-content>
+      </md-card>
+    </div>
+</div>
+
+<!--End -->
+
+
+
+
+<!--<form (submit)="onLogin()">
+  <div class="form-group">
+    <label for="email">Email address</label>
+    <input type="text" [(ngModel)]="email" name="email" class="form-control" id="email" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" [(ngModel)]="password" name="password" class="form-control" id="password" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Login</button>
+</form>-->

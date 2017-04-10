@@ -1,0 +1,11 @@
+
+<md-card class="example-card" *ngIf="user" style="margin: 20px 0 ;">
+      <md-card-title>{{user.firstname | uppercase}} {{user.lastname | uppercase}} </md-card-title>
+          <md-card-content>
+              <p>{{user.email}}</p>
+          </md-card-content>
+      </md-card>
+
+<button type="button"  class="btn btn-default" [routerLink]="['/create']">Create Profile</button>
+
+

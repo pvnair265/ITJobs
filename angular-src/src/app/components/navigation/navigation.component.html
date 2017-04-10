@@ -1,0 +1,60 @@
+<!--Material 2 -->
+<md-toolbar color="primary">
+  <span [ngStyle]="{'margin-right' : '10px'}">ITJOBS </span> <md-icon> devices other </md-icon>
+  <span class="spacer"></span>
+  <button md-icon-button [mdMenuTriggerFor]="appMenu">
+      <md-icon class="md-24">more_vert</md-icon>
+  </button>
+  <md-menu #appMenu="mdMenu">
+      <a md-menu-item [routerLink]="['home']">
+        <md-icon> home </md-icon>
+        <span> Home </span>
+      </a>
+        <a *ngIf="!authservice.loggedIn()" md-menu-item [routerLink]="['login']">
+          <md-icon> person outline </md-icon>
+          <span> Login </span>
+        </a>
+        <a *ngIf="!authservice.loggedIn()" md-menu-item [routerLink]="['register']">
+          <md-icon> lock open </md-icon>
+          <span> Register </span>
+        </a>
+        <a *ngIf="authservice.loggedIn()" md-menu-item [routerLink]="['profile']">
+            <md-icon> account_box </md-icon>
+            <span> Profile </span>
+        </a>
+        <a *ngIf="authservice.loggedIn()" md-menu-item (click)="onlogOut()" href="#">
+            <md-icon> lock open </md-icon>
+            <span> Logout </span>
+        </a>
+    </md-menu>
+</md-toolbar>
+
+<!--Bootstrap 3 -->
+<!--
+  <div class="container">
+    <nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" (click)="toggleState()" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" [routerLink]="['']">ITJOBS</a>
+    </div>
+
+    <div class="collapse navbar-collapse" [ngClass]="{'in': isIn}" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['home']">Home </a></li>
+         <li *ngIf="authservice.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['profile']">Profile </a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li *ngIf="!authservice.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['login']">Login</a></li>
+        <li *ngIf="!authservice.loggedIn()" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{exact: true}"><a [routerLink]="['register']">Register</a></li>
+        <li *ngIf="authservice.loggedIn()" ><a (click)="onlogOut()" href="#">Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+</div>-->
