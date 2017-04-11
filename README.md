@@ -10,5 +10,5 @@ The JSON web token is stored along the other user details.
   * Address
   * Work Experience
   * Skills
-* Angular 2 - Angular 2-jwt, Reactive and Template Forms, Angular 2 Flash Messages, Services
+* Angular 2 - Angular 2-jwt, Reactive and Template Forms, Angular 2 Flash Messages, Services, Angular Material 2
 * Express js - PassportJS, bcryptjs
