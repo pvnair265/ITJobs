@@ -20,7 +20,6 @@ yearsofExp: Array<number>;
   constructor(private authservice: AuthService, private router: Router,private flashmessagesservice: FlashMessagesService) { }
 
   ngOnInit() {
-    
     this.authservice.getProfile().subscribe(data => {
       this.user = data;
     })

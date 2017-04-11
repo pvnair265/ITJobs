@@ -7,6 +7,7 @@ import 'rxjs/add/operator/map';
 export class AuthService {
   authToken: any;
   user:any;
+  id:any;
   constructor(private http: Http) { }
 
       registerUser(user) {
@@ -57,7 +58,6 @@ export class AuthService {
       //Create Profile 
 
       createProfile(data) {
-        console.log(data);
         let header = new Headers();
         this.loadToken();
         header.append('Authorization',this.authToken);
@@ -66,8 +66,11 @@ export class AuthService {
         .map(res => res.json());
       }
 
-
-
-
+      getProfileData(id){
+        let header = new Headers();
+        header.append('Content-Type','application/json');
+        return this.http.get('http://localhost:3000/users/getprofiledata?id='+id,{headers: header})
+         .map(res => res.json());
+      }
 
 }

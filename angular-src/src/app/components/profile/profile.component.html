@@ -1,11 +1,161 @@
-
 <md-card class="example-card" *ngIf="user" style="margin: 20px 0 ;">
-      <md-card-title>{{user.firstname | uppercase}} {{user.lastname | uppercase}} </md-card-title>
-          <md-card-content>
-              <p>{{user.email}}</p>
-          </md-card-content>
-      </md-card>
+    <md-card-title>{{user.firstname | uppercase}} {{user.lastname | uppercase}} </md-card-title>
+    <md-card-content>
+        <p>{{user.email}}</p>
+    </md-card-content>
+</md-card>
 
-<button type="button"  class="btn btn-default" [routerLink]="['/create']">Create Profile</button>
+<button type="button" class="btn btn-default" [routerLink]="['/create']" *ngIf="!alreadyExist">Create Profile</button>
+
+<div *ngIf="alreadyExist">
+<div class="row pt">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">General Information</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="txtb">Phone:</td>
+                            <td>{{profile?.generalinfo.phone}}</td>
+                            <td class="txtb">Linkedin:</td>
+                            <td>{{profile?.generalinfo.linkedin}}</td>
+                        </tr>
+                        <tr>
+                            <td class="txtb">Twitter:</td>
+                            <td>{{profile?.generalinfo.twitter}}</td>
+                            <td class="txtb">Facebook:</td>
+                            <td>{{profile?.generalinfo.facebook}}</td>
+                        </tr>
+                        <tr>
+                            <td class="txtb">Personal Website:</td>
+                            <td colspan="3">{{profile?.generalinfo.website}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 
+<div class="row pt">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Address</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="txtb">City:</td>
+                            <td>{{profile?.address.city}}</td>
+                            <td class="txtb">State:</td>
+                            <td>{{profile?.address.state}}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="txtb">Country:</td>
+                            <td colspan="3">{{profile?.address.country}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row pt">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Work</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <td class="txtb">Title:</td>
+                            <td>{{profile?.title}}</td>
+                            <td class="txtb">Experience:</td>
+                            <td>{{profile?.yearsofexp}}</td>
+                        </tr>
+                        <tr>
+                            <td class="txtb">Job Type:</td>
+                            <td>{{profile?.emptype}}</td>
+                            <td class="txtb">Relocate:</td>
+                            <td>{{profile?.relocate}}</td>
+                        </tr>
+
+                        <tr>
+                            <td class="txtb">Salary:</td>
+                            <td>{{profile?.salary | currency:'USD':true}}</td>
+                            <td class="txtb">Hourly:</td>
+                            <td>{{profile?.hourly | currency:'USD':true}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="row pt">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Work Experience</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <tbody *ngFor="let we of profile?.workexperience">
+                        <tr>
+                            <td class="txtb">Job Title:</td>
+                            <td>{{we.wetitle}}</td>
+                            <td class="txtb">Company:</td>
+                            <td>{{we.wecompany}}</td>
+                        </tr>
+                        <tr>
+                            <td class="txtb">From</td>
+                            <td>{{we.wefrom}}</td>
+                            <td class="txtb">To:</td>
+                            <td>{{we.weto}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row pt">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Skills</h3>
+        </div>
+        <div class="panel-body">
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <th>Skill</th>
+                        <th>Years of Exp</th>
+                    </thead>
+                    <tbody>
+
+                        <tr *ngFor="let skill of profile?.topskills">
+                            <td>{{skill.skills}}</td>
+                            <td>{{skill.years}} year(s)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

@@ -9,11 +9,16 @@ import { Router } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 user: Object;
+profile: Object;
+alreadyExist: boolean = false;
+
   constructor(private authservice : AuthService, private router : Router) { }
 
   ngOnInit() {
     this.authservice.getProfile().subscribe(data => {
       this.user = data;
+      this.getProfileData(this.user['_id']);
+
     },
     err => {
       //If unauthorized or other errors
@@ -22,7 +27,14 @@ user: Object;
     });
   }
 
-
+  getProfileData(id){
+    this.authservice.getProfileData(id).subscribe(data => {
+      this.profile = data;
+      if(this.profile!==null){
+        this.alreadyExist = true;
+      }
+   })
+  }
   
 
 }

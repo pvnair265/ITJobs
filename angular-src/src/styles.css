@@ -11,10 +11,6 @@
     margin-top: 5%;
 }
 
-input.ng-invalid.ng-touched {
-  border: solid 1px red;
-}
-
-.input-full-width {
-  width: 100%;
-}
+input.ng-invalid.ng-touched { border: solid 1px red;}
+.input-full-width { width: 100%;}
+.txtb{font-weight: bold;}

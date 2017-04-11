@@ -100,6 +100,17 @@ module.exports.comparePassword = function(candidatePassword, hash, callback) {
 module.exports.profile = (req,res,next) => {
     return res.json(req.user);
 }
+//Profile data 
+module.exports.getProfileData = (req, res, next) => {
+    Profile.findOne({userid: req.query.id},(err,results) => {
+        if(err) {
+            console.log(err);
+        } else {
+            return res.json(results);
+        }
+    })
+
+}
 
 //Create profile
 module.exports.createprofile = (req, res, next) => {

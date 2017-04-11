@@ -11,6 +11,8 @@ const express = require('express'),
      config = require('./config/database'),
      userroutes = require('./routes/user-routes'),
      PORT = 3000; //PORT
+
+     mongoose.set('debug', true);
      
     //mongoose connectio and connection check 
      mongoose.connect(config.database);
