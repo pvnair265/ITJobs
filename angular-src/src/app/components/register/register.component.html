@@ -22,7 +22,14 @@
                      <input mdInput placeholder="Password" type="password" [(ngModel)]="password" name="password" id="password">
                 </md-input-container>
 
-                <button type="submit" md-raised-button color="primary">Register</button>
+                 <md-radio-group [(ngModel)]="role" name="role">
+                        <md-radio-button value="1">Employer</md-radio-button>
+                        <md-radio-button value="2">Jobseeker</md-radio-button>
+                    </md-radio-group> 
+
+                    <div class="clear clearfix pt">
+                         <button type="submit" md-raised-button color="primary">Register</button>
+                    </div>    
             </form>
           </md-card-content>
       </md-card>

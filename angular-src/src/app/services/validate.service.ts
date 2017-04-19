@@ -11,7 +11,7 @@ export class ValidateService {
 }
 
   validateRegisterForm(user) {
-    if (user.firstname === undefined || user.lastname === undefined || user.email === undefined ||  user.password === undefined){
+    if (user.firstname === undefined || user.lastname === undefined || user.email === undefined ||  user.password === undefined || user.role === undefined){
       return false;
     } else {
       return true;

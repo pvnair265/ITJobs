@@ -73,4 +73,14 @@ export class AuthService {
          .map(res => res.json());
       }
 
+      postJobs(data){
+        let header = new Headers();
+        this.loadToken();
+        header.append('Authorization', this.authToken);
+        header.append('Content-Type','application/json');
+        return this.http.post('http://localhost:3000/users/postjobs', data, {headers:header})
+        .map(res => res.json());
+
+      }
+
 }

@@ -5,7 +5,14 @@
     </md-card-content>
 </md-card>
 
-<button type="button" class="btn btn-default" [routerLink]="['/create']" *ngIf="!alreadyExist">Create Profile</button>
+<div *ngIf="role==1">
+    <button type="button" class="btn btn-success" [routerLink]="['/postjobs']" *ngIf="!alreadyExist">Post Jobs</button>
+</div>
+
+<div *ngIf="role==2">
+    <button type="button" class="btn btn-success" [routerLink]="['/create']" *ngIf="!alreadyExist">Create Profile</button>
+</div>
+
 
 <div *ngIf="alreadyExist">
 <div class="row pt">

@@ -11,5 +11,6 @@ router.post('/login', userController.login); //Login User
 
 router.get('/profile', passport.authenticate('jwt',{session:false}), userController.profile); //Login User
 router.post('/createprofile', passport.authenticate('jwt',{session:false}), userController.createprofile); 
+router.post('/postjobs', passport.authenticate('jwt',{session: false}), userController.postjobs);
 router.get('/getprofiledata', userController.getProfileData);
 module.exports = router;  

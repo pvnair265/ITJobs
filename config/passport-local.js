@@ -29,6 +29,7 @@ passport.use('local.signup', new localStrategy({
     //Server side validation - express validator
     req.checkBody('email','Invalid Email ').notEmpty().isEmail();
     req.checkBody('password','Invalid Password ').notEmpty();
+    req.checkBody('role','Invalid Role ').notEmpty();
     req.checkBody('firstname','Invalid Firstname ').notEmpty().isAlpha();
     req.checkBody('lastname','Invalid Lastname ').notEmpty().isAlpha();
     let errors = req.validationErrors();
@@ -52,7 +53,8 @@ passport.use('local.signup', new localStrategy({
                         firstname: req.body.firstname,
                         lastname: req.body.lastname,
                         email: email,
-                        password: hash
+                        password: hash,
+                        role: req.body.role
                     });
 
                      newUser.save({},function(err, result) {

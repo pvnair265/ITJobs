@@ -14,3 +14,4 @@
 input.ng-invalid.ng-touched { border: solid 1px red;}
 .input-full-width { width: 100%;}
 .txtb{font-weight: bold;}
+.mat-radio-label-content { font-weight: normal}

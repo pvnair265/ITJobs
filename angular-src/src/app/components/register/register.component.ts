@@ -14,6 +14,7 @@ export class RegisterComponent implements OnInit {
   lastname : String;
   email: String;
   password: String;
+  role: String;
 
   constructor(private authservice: AuthService, 
   private validateservice: ValidateService,
@@ -28,7 +29,8 @@ export class RegisterComponent implements OnInit {
       firstname: this.firstname,
       lastname: this.lastname,
       email: this.email,
-      password: this.password
+      password: this.password,
+      role: this.role
     }
 
     //Flash Message - Validate required fields
@@ -45,7 +47,6 @@ export class RegisterComponent implements OnInit {
 
     //Send to service
     this.authservice.registerUser(user).subscribe(data => {
-      console.log(data);
       if(data.success){
         this.flashmessagesservice.show(data.message, { cssClass: 'alert-success', timeout: 1000});
         this.router.navigate(['/login']);

@@ -21,8 +21,12 @@ import {AuthService} from './services/auth.service';
 import {ValidateService} from './services/validate.service';
 import {AuthGuard} from './guards/auth.guard';
 import { CreateComponent } from './components/create/create.component';
+import { CompanyComponent } from './components/company/company.component';
+import { PostjobsComponent } from './components/postjobs/postjobs.component';
 
 import 'hammerjs';
+
+
 
 const appRoutes : Routes = [
   {path: '', component: HomeComponent},
@@ -30,7 +34,8 @@ const appRoutes : Routes = [
   {path : 'login', component : LoginComponent},
   {path : 'register', component : RegisterComponent},
   {path: 'profile', component : ProfileComponent,canActivate:[AuthGuard]},
-  {path: 'create', component : CreateComponent,canActivate:[AuthGuard]}
+  {path: 'create', component : CreateComponent,canActivate:[AuthGuard]},
+  {path: 'postjobs', component : PostjobsComponent,canActivate:[AuthGuard]}
 ]
 
 @NgModule({
@@ -41,7 +46,9 @@ const appRoutes : Routes = [
     RegisterComponent,
     ProfileComponent,
     NavigationComponent,
-    CreateComponent
+    CreateComponent,
+    CompanyComponent,
+    PostjobsComponent
   ],
   imports: [
     BrowserModule,

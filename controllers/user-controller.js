@@ -1,5 +1,6 @@
 const User = require ('../models/user-model'),
-      Profile = require('../models/profile-model'),  
+      Profile = require('../models/profile-model'), 
+      Job = require('../models/job-model'), 
     jwt = require('jsonwebtoken'),
     config = require('../config/database'),
     bcrypt = require('bcryptjs');
@@ -14,7 +15,8 @@ module.exports.register = (req, res, next) => {
         firstname: req.body.firstname,
         lastname: req.body.lastname,
         email: req.body.email,
-        password : req.body.password
+        password : req.body.password,
+        role: req.body.role
     });
 
    this.addUser(newUser,(err, user, info)=>{
@@ -78,7 +80,8 @@ module.exports.login = (req, res, next) => {
                         id: user._id,
                         firstname: user.firstname,
                         lastname: user.lastname,
-                        email: user.email
+                        email: user.email,
+                        role: user.role
                     }
                 })
             } else {
@@ -109,7 +112,6 @@ module.exports.getProfileData = (req, res, next) => {
             return res.json(results);
         }
     })
-
 }
 
 //Create profile
@@ -122,5 +124,17 @@ module.exports.createprofile = (req, res, next) => {
         return res.json({success: true, message: 'Profile created successfully'});
         }
     })
-    
+}
+
+//Post Jobs
+
+module.exports.postjobs = (req, res, next) => {
+    let newJob = new Job(req.body);
+    newJob.save({},(err, results) => {
+        if(err){
+            return res.json({success: false, message: 'Error posting Job'})
+        } else {
+            return res.json({success: true, message: 'Job Posted'});
+        }
+    })
 }

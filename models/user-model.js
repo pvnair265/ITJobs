@@ -4,7 +4,9 @@ const mongoose = require('mongoose'),
         firstname : {type: String },
         lastname : { type: String },
         email : { type: String },
-        password: { type: String }
+        password: { type: String },
+        role : { type: Number },
+        status: { type: String, default: 'A'}
     });
 
 const User = mongoose.model('User', userSchema);

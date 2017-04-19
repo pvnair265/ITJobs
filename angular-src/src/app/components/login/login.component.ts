@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
  email: String;
  password: String;
+
   constructor(private authservice: AuthService, 
   private validateservice: ValidateService,
   private flashmessagesservice: FlashMessagesService,
@@ -38,11 +39,11 @@ export class LoginComponent implements OnInit {
     }
     //send to service
     this.authservice.loginUser(user).subscribe(data => {
-      console.log(data);
+      console.log(data.user.role);
       if(data.success){
         this.authservice.storeuserData(data.token,data.user);
-         this.flashmessagesservice.show(data.message, {cssClass: 'alert-success', timeout: 1000});
-         this.router.navigate(['/profile']);
+        this.flashmessagesservice.show(data.message, {cssClass: 'alert-success', timeout: 1000});
+        this.router.navigate(['/profile']);  
       } else {
         this.flashmessagesservice.show(data.message, {cssClass: 'alert-danger', timeout: 1000});
         this.router.navigate(['login']);
