@@ -80,7 +80,20 @@ export class AuthService {
         header.append('Content-Type','application/json');
         return this.http.post('http://localhost:3000/users/postjobs', data, {headers:header})
         .map(res => res.json());
+      }
 
+      getPostedData(id){
+        let header = new Headers();
+        header.append('Content-Type','application/json');
+        return this.http.get('http://localhost:3000/users/getposteddata?id='+id,{headers: header})
+                .map(res => res.json());
+      }
+
+      getallJobs() {
+        let header = new Headers();
+        header.append('Content-Type','application/json');
+        return this.http.get('http://localhost:3000/users/getalldata', {headers: header})
+                .map(res => res.json());
       }
 
 }

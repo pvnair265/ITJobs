@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { TruncatePipe } from '../../truncate.pipe';
 
 @Component({
   selector: 'app-profile',
@@ -10,8 +11,10 @@ import { Router } from '@angular/router';
 export class ProfileComponent implements OnInit {
 user: Object;
 profile: Object;
+jobs: Object;
 role: Number;
 alreadyExist: boolean = false;
+jobsExist: boolean = false;
 
   constructor(private authservice : AuthService, private router : Router) { }
 
@@ -20,6 +23,7 @@ alreadyExist: boolean = false;
       this.user = data;
       this.role = data.role;
       this.getProfileData(this.user['_id']);
+      this.getPostedJobs(this.user['_id']);
     },
     err => {
       //If unauthorized or other errors
@@ -35,6 +39,16 @@ alreadyExist: boolean = false;
         this.alreadyExist = true;
       }
    })
+  }
+
+  //Get Posted Jobs
+
+  getPostedJobs(id) {
+    this.authservice.getPostedData(id).subscribe(data => {
+      console.log(data);
+      this.jobs = data;
+      this.jobsExist = true;
+    })
   }
   
 

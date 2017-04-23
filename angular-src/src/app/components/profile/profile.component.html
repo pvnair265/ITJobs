@@ -13,6 +13,21 @@
     <button type="button" class="btn btn-success" [routerLink]="['/create']" *ngIf="!alreadyExist">Create Profile</button>
 </div>
 
+<div *ngIf="jobsExist" style="margin-top:20px;">
+    <div class="col-md-6" *ngFor="let job of jobs" style="padding-left:0; max-height:175px; height:175px;">
+         <md-card>
+             <md-card-subtitle>{{job.title | uppercase | truncate : 20 }}</md-card-subtitle>
+            <md-card-content>{{job.desc | truncate : 50}}</md-card-content>
+             <md-card-actions> 
+                 <button md-fab md-mini-fab color="primary" title="view details"><md-icon>visibility</md-icon></button>
+
+                 <button md-fab md-mini-fab color="accent" title="edit"><md-icon>edit</md-icon></button>
+                    <button md-fab md-mini-fab  color="warn" class="pull-right" title="delete"><md-icon>delete</md-icon></button>
+             </md-card-actions>
+            </md-card>
+    </div>
+</div>
+
 
 <div *ngIf="alreadyExist">
 <div class="row pt">

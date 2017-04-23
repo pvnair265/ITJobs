@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     schema =   mongoose.Schema;
     jobSchema = new schema ({
         title: { type: String},
-        description: { type: String },
+        desc: { type: String },
         address : {
             city: { type: String },
             state: { type: String },

@@ -25,6 +25,7 @@ import { CompanyComponent } from './components/company/company.component';
 import { PostjobsComponent } from './components/postjobs/postjobs.component';
 
 import 'hammerjs';
+import { TruncatePipe } from './truncate.pipe';
 
 
 
@@ -48,7 +49,8 @@ const appRoutes : Routes = [
     NavigationComponent,
     CreateComponent,
     CompanyComponent,
-    PostjobsComponent
+    PostjobsComponent,
+    TruncatePipe
   ],
   imports: [
     BrowserModule,

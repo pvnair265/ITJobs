@@ -138,3 +138,24 @@ module.exports.postjobs = (req, res, next) => {
         }
     })
 }
+
+//Posted Jobs
+
+module.exports.getPostedJobs = (req, res, next) => {
+    Job.find({userid: req.query.id},(err,results) => {
+        if(err)
+            console.log(err);
+         else 
+            res.json(results);
+    })
+}
+
+//get all data
+module.exports.getAllData = (req, res, next) => {
+    Job.find({},(err, results)=>{
+        if(err) 
+            console.log(err);
+         else
+            res.json(results);
+    })
+}

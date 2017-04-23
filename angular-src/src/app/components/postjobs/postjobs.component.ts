@@ -26,7 +26,6 @@ private country: String = "";
   }
 
   postJobs(data){
-    //console.log(f)
     data.userid = this.user['_id'];
    this.authservice.postJobs(data).subscribe(data => {
      if(data.success){
