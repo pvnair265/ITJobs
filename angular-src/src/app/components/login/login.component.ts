@@ -39,7 +39,6 @@ export class LoginComponent implements OnInit {
     }
     //send to service
     this.authservice.loginUser(user).subscribe(data => {
-      console.log(data.user.role);
       if(data.success){
         this.authservice.storeuserData(data.token,data.user);
         this.flashmessagesservice.show(data.message, {cssClass: 'alert-success', timeout: 1000});

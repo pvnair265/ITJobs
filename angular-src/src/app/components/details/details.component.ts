@@ -23,7 +23,6 @@ singleJob: Object;
    getjobDetail(id) {
       this.authservice.getjobDetail(id).subscribe(data => {
         this.singleJob = data;
-        console.log(this.singleJob);
       })
     }
 

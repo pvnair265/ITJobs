@@ -6,11 +6,12 @@
               <p>{{singleJob[0].desc}}</p>
               <p>{{singleJob[0].address.city+ ', '+singleJob[0].address.state+ ' - ' +singleJob[0].address.country}}</p>
               <p>{{singleJob[0].address.createdOn | date:'longDate'}}</p>
-
+              <p>Posted By:  {{singleJob[0].userid.firstname +' '+singleJob[0].userid.lastname}} - {{singleJob[0].userid.email}} </p>
             </md-card-content>
              <md-card-actions> 
                  <button md-raised-button color="primary"  title="Back" (click)="goBack()">Back</button>
              </md-card-actions>
+          
             </md-card>
     </div> 
       </div><!-- /.row -->

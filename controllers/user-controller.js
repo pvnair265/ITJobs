@@ -163,10 +163,13 @@ module.exports.getAllData = (req, res, next) => {
 //Get single job
 
 module.exports.getJobDetail = (req, res, next) => {
-      Job.find({_id:req.query.id},(err, results)=>{
+      Job.find({_id:req.query.id})
+      .populate('userid','firstname lastname email')
+      .exec((err, results)=>{
         if(err) 
             console.log(err);
          else
             res.json(results);
     })
+
 }
