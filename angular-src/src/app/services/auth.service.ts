@@ -96,4 +96,11 @@ export class AuthService {
                 .map(res => res.json());
       }
 
+      getjobDetail(id) {
+        let header = new Headers();
+        header.append('Content-Type','application/json');
+        return this.http.get('http://localhost:3000/users/getjobdetail?id='+id, {headers: header})
+                .map(res => res.json());
+      }
+
 }

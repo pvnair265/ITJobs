@@ -1,0 +1,16 @@
+ <div class="row" style="margin-top:20px;">
+              <div class="col-md-12" *ngIf=singleJob>
+         <md-card>
+             <md-card-subtitle>{{singleJob[0].title}}</md-card-subtitle>
+            <md-card-content>
+              <p>{{singleJob[0].desc}}</p>
+              <p>{{singleJob[0].address.city+ ', '+singleJob[0].address.state+ ' - ' +singleJob[0].address.country}}</p>
+              <p>{{singleJob[0].address.createdOn | date:'longDate'}}</p>
+
+            </md-card-content>
+             <md-card-actions> 
+                 <button md-raised-button color="primary"  title="Back" (click)="goBack()">Back</button>
+             </md-card-actions>
+            </md-card>
+    </div> 
+      </div><!-- /.row -->

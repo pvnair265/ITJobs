@@ -10,12 +10,16 @@ import { TruncatePipe } from '../../truncate.pipe';
 })
 export class HomeComponent implements OnInit {
 allJobs : Object;
-  constructor(private authservice: AuthService) { }
+  constructor(private authservice: AuthService, private router: Router) { }
 
   ngOnInit() {
     this.authservice.getallJobs().subscribe(data => {
       this.allJobs = data;
     })
+  }
+
+  getDetails(id:string){
+    this.router.navigate(['details',id]);
   }
 
 }

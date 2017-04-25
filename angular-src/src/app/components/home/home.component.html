@@ -12,7 +12,7 @@
              <md-card-subtitle>{{job.title | uppercase | truncate : 50 }}</md-card-subtitle>
             <md-card-content>{{job.desc | truncate : 50}}</md-card-content>
              <md-card-actions> 
-                 <button md-raised-button color="accent"  title="view details">View Details</button>
+                 <button md-raised-button color="accent"  title="view details" (click)="getDetails(job._id)">View Details</button>
              </md-card-actions>
             </md-card>
     </div> 

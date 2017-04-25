@@ -159,3 +159,14 @@ module.exports.getAllData = (req, res, next) => {
             res.json(results);
     })
 }
+
+//Get single job
+
+module.exports.getJobDetail = (req, res, next) => {
+      Job.find({_id:req.query.id},(err, results)=>{
+        if(err) 
+            console.log(err);
+         else
+            res.json(results);
+    })
+}

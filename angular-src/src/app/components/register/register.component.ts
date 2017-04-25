@@ -32,7 +32,7 @@ export class RegisterComponent implements OnInit {
       password: this.password,
       role: this.role
     }
-    console.log(user);
+    
 
     //Flash Message - Validate required fields
     if(!this.validateservice.validateRegisterForm(user)){

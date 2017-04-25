@@ -15,4 +15,5 @@ router.post('/postjobs', passport.authenticate('jwt',{session: false}), userCont
 router.get('/getprofiledata', userController.getProfileData);
 router.get('/getposteddata', userController.getPostedJobs);
 router.get('/getalldata', userController.getAllData);
+router.get('/getjobdetail', userController.getJobDetail);
 module.exports = router;  

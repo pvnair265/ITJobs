@@ -26,6 +26,7 @@ import { PostjobsComponent } from './components/postjobs/postjobs.component';
 
 import 'hammerjs';
 import { TruncatePipe } from './truncate.pipe';
+import { DetailsComponent } from './components/details/details.component';
 
 
 
@@ -34,6 +35,7 @@ const appRoutes : Routes = [
   {path : 'home', component : HomeComponent},
   {path : 'login', component : LoginComponent},
   {path : 'register', component : RegisterComponent},
+  {path: 'details/:id', component: DetailsComponent},
   {path: 'profile', component : ProfileComponent,canActivate:[AuthGuard]},
   {path: 'create', component : CreateComponent,canActivate:[AuthGuard]},
   {path: 'postjobs', component : PostjobsComponent,canActivate:[AuthGuard]}
@@ -50,7 +52,8 @@ const appRoutes : Routes = [
     CreateComponent,
     CompanyComponent,
     PostjobsComponent,
-    TruncatePipe
+    TruncatePipe,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,
